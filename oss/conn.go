@@ -471,7 +471,7 @@ func (conn Conn) handleResponse(resp *http.Response, crc hash.Hash64) (*Response
 	var srvCRC uint64
 
 	statusCode := resp.StatusCode
-	if statusCode >= 400 && statusCode <= 505 {
+	if statusCode >= 400 {
 		// 4xx and 5xx indicate that the operation has error occurred
 		var respBody []byte
 		respBody, err := readResponseBody(resp)
